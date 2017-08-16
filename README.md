@@ -1,7 +1,7 @@
 osm_mongodb
 ====================
 
-Ansible Role - Mongodb on RHEL/CentOS and Debian/Ubuntu.
+Ansible Role - osm_mongodb on RHEL/CentOS and Debian/Ubuntu.
 
 ## Requirements
 
@@ -44,9 +44,12 @@ To change the list of packages to install:
 
 ## Example Playbook
 
-    - hosts: nosql
+    - hosts: replication_servers
       roles:
-        - { role: lesmyrmidons.mongodb }
+        - { role: osm_mongo }
+    - hosts: mongo_primary
+      roles:
+        - { role: mongoreplication }	
 
 ## License
 
