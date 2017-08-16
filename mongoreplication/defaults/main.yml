@@ -1,0 +1,5 @@
+---
+# defaults file for mongoreplication
+
+mongod_port: 27018
+replicaset_name: OpsTree-mongo-rs

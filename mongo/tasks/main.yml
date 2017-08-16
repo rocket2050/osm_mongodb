@@ -1,0 +1,43 @@
+---
+# tasks file for osm_mongo
+
+# This role deploys the mongodb processes and sets up settings.
+
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Include setup-RedHat.yml
+  include: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: Include setup-Debian.yml
+  include: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: create data directory for mongodb
+  file: path={{ mongodb_datadir }} state=directory owner=mongodb group=mongodb
+#  delegate_to: '{{ item }}'
+#  with_items: "{{groups.replication_servers}}"
+  become: yes
+
+- name: Create the mongodb configuration file
+  template: 
+    src: mongod.conf.j2 
+    dest: /etc/mongod.conf
+    owner: mongodb
+    group: mongodb
+    mode: 0755
+  notify:
+  - restart mongod
+#  delegate_to: '{{ item }}'
+#  with_items: "{{groups.replication_servers}}"
+
+#- name: Copy the keyfile for authentication
+#  copy:
+#    src: secret
+#    dest: "{{ mongodb_datadir_prefix }}/secret"
+#    owner: mongod
+#    group: mongod
+#    mode: 0400
+#    setype: mongod_var_lib_t
+

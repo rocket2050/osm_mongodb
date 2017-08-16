@@ -1,0 +1,21 @@
+---
+#- hosts: zookeeper
+#  roles:
+#    - { role: "zookeeper" }
+#  remote_user: root 
+
+#- hosts: solr
+#  roles:
+#    - { role: "solr" }
+#  remote_user: root
+
+- hosts: replication_servers
+  roles:
+    - { role: "osm_mongo" }
+  remote_user: root
+
+- hosts: mongoPrimary
+  roles:
+    - { role: mongoreplication }
+  remote_user: root
+

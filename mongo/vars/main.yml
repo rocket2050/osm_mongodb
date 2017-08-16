@@ -1,0 +1,5 @@
+---
+# vars file for osm_mongo
+
+mongodb_packages:
+  - mongodb-org
