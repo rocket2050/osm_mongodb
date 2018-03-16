@@ -1,0 +1,8 @@
+---
+# handlers file 
+
+- name: stopped mongod
+  service: name=mongod state=stopped
+
+- name: start mongod
+  service: name=mongod state=started

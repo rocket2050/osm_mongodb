@@ -1,0 +1,21 @@
+---
+
+#mongodb_packages: "mongodb-org"
+url_apt_key: "hkp://keyserver.ubuntu.com:80"
+id_apt_key: 0C49F3730359A14518585931BC711F9BA15703C6
+mongodb_repository: "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse"
+#  - mongodb-org
+# log created where path
+log_path: /disk2/database/log/mongod.log
+
+mongod_port: 27017
+# ip for host
+bind_Ip: 127.0.0.1
+
+path_database: /disk2/database/data
+# path for log file 
+path_for_log: /disk2/database/log
+# dirctory for data and log 
+path_for_database: /disk2/database
+# user for dierctory you change for log and data
+user_for_database: mongodb
