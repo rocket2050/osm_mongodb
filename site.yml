@@ -2,11 +2,7 @@
 - hosts: java
   become: true
   roles:
-    - "/etc/ansible/roles/mongo/mongo_role-/mongo/mongo/" 
+    - osm_mongodb
   remote_user: root
 
-#- hosts: mongoPrimary
-#  roles#:
-#    - { role: mongoreplication }
-#  remote_user: root
 
