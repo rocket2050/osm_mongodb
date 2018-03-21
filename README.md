@@ -1,56 +1,38 @@
-osm_mongodb
-====================
+mongo
+=========
 
-Ansible Role - osm_mongodb on RHEL/CentOS and Debian/Ubuntu.
+A brief description of the role goes here.
 
-## Requirements
+Requirements
+------------
 
-None.
+Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
-## Role Variables
+Role Variables
+--------------
 
-For Debian :
+A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
-	url_apt_key: "http://keyserver.ubuntu.com/pks/lookup?op=get&search="
-	mongodb_repository: "deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen"
+Dependencies
+------------
 
-For Ubuntu 16.04 :
+A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
-    url_apt_key: "keyserver.ubuntu.com"
-    id_apt_key: 0C49F3730359A14518585931BC711F9BA15703C6
-    mongodb_repository: "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse"
+Example Playbook
+----------------
 
-If other version change `mongodb_repository` :
+Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    # for 12.04
-    mongodb_repository: "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu precise/mongodb-org/3.4 multiverse"
-    # for 14.04
-    mongodb_repository: "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse"
-
-For RedHat / CentOS :
-
-    mongodb_version: "3.2"
-    mongodb_repo_baseurl: https://repo.mongodb.org/yum/redhat/{{ ansible_distribution_major_version }}/mongodb-org/{{ mongodb_version }}/x86_64/
-    mongodb_repo_gpgcheck: yes
-    mongodb_repo_gpgkey: https://www.mongodb.org/static/pgp/server-{{ mongodb_version }}.asc
-    mongodb_packages_dependencies:
-      - libselinux-python
-
-
-To change the list of packages to install:
-
-	mongodb_packages:
-	  - mongodb-org
-
-## Example Playbook
-
-    - hosts: replication_servers
+    - hosts: servers
       roles:
-        - { role: osm_mongo }
-    - hosts: mongo_primary
-      roles:
-        - { role: mongoreplication }	
+         - { role: username.rolename, x: 42 }
 
-## License
+License
+-------
 
-MIT / BSD
+BSD
+
+Author Information
+------------------
+
+An optional section for the role authors to include contact information, or a website (HTML is not allowed).

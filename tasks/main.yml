@@ -1,0 +1,41 @@
+---
+
+- name: Ubuntu | Add keys authenticity
+  apt_key:
+    keyserver: "{{ url_apt_key }}"
+    id: "{{ id_apt_key }}"
+#  when: ansible_distribution == 'Ubuntu'
+
+- name: Debian | Add source sources
+  apt_repository: repo={{ mongodb_repository }} update_cache=yes
+
+- name: Debian | Install Packages
+  apt: pkg={{ item }} state=installed force=yes
+  with_items: "{{ mongodb_packages }}"
+- template:
+    src: mongod.conf.j2
+    dest: /etc/mongod.conf
+  notify:
+  - stopped mongod
+- file:
+    path: "{{ path_database }}"
+    state: directory
+- file:
+    path: "{{ path_for_log }}"
+    state: directory
+- name: To copy Mongo Files
+  command: mv /var/lib/mongodb "{{ path_database }}"
+  run_once: True
+- name: link the file
+  shell: ln -s "{{ path_database }}"  /var/lib/mongodb
+  run_once: True
+- file:
+    path: "{{ path_for_database }}"
+    state: directory
+    owner: "{{ user_for_database }}"
+    group: "{{ user_for_database }}"
+    recurse: yes
+  notify:
+  - start mongod
+
+

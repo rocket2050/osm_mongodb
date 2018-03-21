@@ -5,7 +5,7 @@
 
 # Where and how to store data.
 storage:
-  dbPath: {{mongodb_datadir}}
+  dbPath: {{ path_database }}
   journal:
     enabled: true
 #  engine:
@@ -16,22 +16,21 @@ storage:
 systemLog:
   destination: file
   logAppend: true
-  path: "{{log_path}}"
+  path: {{ log_path }}
 
 # network interfaces
 net:
-  port: {{mongod_port}}
-  bindIp: {{bind_Ip}}
+  port: {{ mongod_port }}
+  bindIp: {{ bind_Ip }}
 
 
-processManagement:
-  fork: true
+#processManagement:
+
 #security:
 
 #operationProfiling:
 
-replication:
-  replSetName: {{replicaset_name}}
+#replication:
 
 #sharding:
 
@@ -40,4 +39,3 @@ replication:
 #auditLog:
 
 #snmp:
-
