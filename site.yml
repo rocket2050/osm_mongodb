@@ -3,6 +3,6 @@
   become: true
   roles:
     - osm_mongodb
-  remote_user: root
+  remote_user: vagrant
 
 
