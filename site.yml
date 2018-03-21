@@ -1,5 +1,5 @@
 ---
-- hosts: java
+- hosts: mongo
   become: true
   roles:
     - osm_mongodb
