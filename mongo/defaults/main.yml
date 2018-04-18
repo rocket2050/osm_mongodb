@@ -1,0 +1,16 @@
+---
+
+mongodb_packages:
+  - mongodb-org
+
+
+# The port in which mongos server should listen on 
+log_path: /disk2/database/log/mongod.log
+mongod_port: 27017
+bind_Ip: 0.0.0.0
+replicaset_name: OpsTree-mongo-rs
+
+# The directory prefix where the database files would be stored
+mongodb_datadir:  /disk2/database/data
+
+

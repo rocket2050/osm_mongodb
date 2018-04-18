@@ -1,0 +1,12 @@
+---
+- hosts: java
+  become: true
+  roles:
+    - /etc/ansible/roles/mongo/mongo_role-/mongo/mongo/
+  remote_user: vagrant
+
+#- hosts: mongoPrimary
+#  roles#:
+#    - { role: mongoreplication }
+#  remote_user: root
+
