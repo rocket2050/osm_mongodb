@@ -16,7 +16,7 @@ storage:
 systemLog:
   destination: file
   logAppend: true
-  path: "{{log_path}}"
+  path: {{log_path}}
 
 # network interfaces
 net:
@@ -24,14 +24,14 @@ net:
   bindIp: {{bind_Ip}}
 
 
-processManagement:
-  fork: true
+#processManagement:
+#  fork: true
 #security:
 
 #operationProfiling:
 
-replication:
-  replSetName: {{replicaset_name}}
+#replication:
+#  replSetName: {{replicaset_name}}
 
 #sharding:
 

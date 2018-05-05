@@ -4,8 +4,6 @@
 mongodb_packages:
   - mongodb-org
 
-# The global variable file mongodb installation
-
 #mongodb_version: 3.2.11
 
 # The chunksize for shards in MB
@@ -18,7 +16,7 @@ bind_Ip: 0.0.0.0
 replicaset_name: OpsTree-mongo-rs
 
 # The directory prefix where the database files would be stored
-mongodb_datadir: /mongodb
+mongodb_datadir: "/var/lib/mongodb"
 
 # The interface where the mongodb process should listen on.
 # Defaults to the first interface. Change this to:

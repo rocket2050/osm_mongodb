@@ -24,20 +24,6 @@
   template: 
     src: mongod.conf.j2 
     dest: /etc/mongod.conf
-    owner: mongodb
-    group: mongodb
-    mode: 0755
   notify:
   - restart mongod
-#  delegate_to: '{{ item }}'
-#  with_items: "{{groups.replication_servers}}"
-
-#- name: Copy the keyfile for authentication
-#  copy:
-#    src: secret
-#    dest: "{{ mongodb_datadir_prefix }}/secret"
-#    owner: mongod
-#    group: mongod
-#    mode: 0400
-#    setype: mongod_var_lib_t
 
